@@ -172,3 +172,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bala
   direccion: {x: 0.86, y: 0.39}
   velocidad: 5
+  danio: 5

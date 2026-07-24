@@ -11,11 +11,24 @@ public class Defensa : MonoBehaviour
     public float velocidadRotacion = 10f;
     public LayerMask capaEnemigos;
 
+    public float cooldownDisparo = 1.5f;
+    private float tiempoUltimoDisparo = 0f;
+
     void Update()
     {
         //ActualizarRaton();
         EnemigoMasCercano();
         ApuntarAlTracker();
+
+        // Cooldown Disparo
+        if(posicionTracking!=Vector2.zero)
+        {
+            if(Time.time - tiempoUltimoDisparo >= cooldownDisparo)
+            {
+                DisparaBala();
+                tiempoUltimoDisparo = Time.time;
+            }
+        }
 
         if(Mouse.current.leftButton.wasPressedThisFrame) DisparaBala();
     }
@@ -35,9 +48,9 @@ public class Defensa : MonoBehaviour
     float mejorDistSq = radioDeBusqueda * radioDeBusqueda;
     Vector2 pos = transform.position;
 
-    for (int i = 0; i < Enemy.All.Count; i++)
+    for (int i = 0; i < Enemigo.All.Count; i++)
     {
-        var t = Enemy.All[i];
+        var t = Enemigo.All[i];
         if (t == null) continue;
         float distSq = ((Vector2)t.position - pos).sqrMagnitude;
         if (distSq <= mejorDistSq)

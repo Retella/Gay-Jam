@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Enemy : MonoBehaviour
+public class Enemigo : MonoBehaviour
 {
     public static readonly List<Transform> All = new List<Transform>();
 
