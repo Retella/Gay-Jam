@@ -180,5 +180,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbf97f8138b6ed4582bd6d956d03485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::chavaloScript
-  moveSpeed: 5
+  moveSpeed: 15
   smoothTime: 0.1
