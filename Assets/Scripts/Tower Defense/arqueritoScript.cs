@@ -15,7 +15,7 @@ public class arqueritoScript : MonoBehaviour
     {
         if (isFollowing && targetToFollow != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, targetToFollow.position, 5f * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetToFollow.position, (targetToFollow.position - transform.position).magnitude * 2f * Time.deltaTime);
         }
     }
 }
