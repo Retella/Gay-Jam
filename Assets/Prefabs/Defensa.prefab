@@ -199,3 +199,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Defensa
   balaPrefab: {fileID: 8617726269448094879, guid: 09b798b47ac8ccc4ab8e9c566922b367, type: 3}
+  posicionTracking: {x: 0, y: 0}
+  radioDeBusqueda: 5
+  velocidadRotacion: 10
+  capaEnemigos:
+    serializedVersion: 2
+    m_Bits: 64
+  cooldownDisparo: 1.5
