@@ -17,6 +17,7 @@ public class chavaloScript : MonoBehaviour
 
     private bool isCarrerita = false;
     private Vector2 carreritaDirection;
+    private int arqueritoCount = 0;
 
     private void Awake()
     {
@@ -48,6 +49,9 @@ public class chavaloScript : MonoBehaviour
         if (isCarrerita)
         {
             rb.linearVelocity = carreritaDirection * moveSpeed * 2.5f;
+            Vector2 targetVelocity = moveInput * moveSpeed;
+            currentVelocity = Vector2.SmoothDamp(currentVelocity, targetVelocity, ref velocitySmoothing, smoothTime);
+            rb.linearVelocity += currentVelocity;
         }
         else
         {
@@ -69,6 +73,13 @@ public class chavaloScript : MonoBehaviour
             {
                 activarCarrerita(collision.gameObject.transform);
             }
+        }
+
+        else if (collision.CompareTag("arqueritoTag"))
+        {
+            arqueritoCount++;
+            arqueritoScript arquerito = collision.GetComponent<arqueritoScript>();
+            arquerito.follow(this.transform);
         }
     }
 
